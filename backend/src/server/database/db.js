@@ -21,6 +21,7 @@ const db = (query, values) => pool
   .then(({ rows }) => rows)
   .catch(({ code, message }) => {
     const error = { status: '[ERROR]', code, message }
+    console.log('[DB/ERROR]', error)
     throw error
   })
 
