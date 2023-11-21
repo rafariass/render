@@ -19,10 +19,14 @@ export const findUserByEmail = (req, res) => {
     .catch((error) => res.status(HTTP_STATUS.internal_server_error.code).json(error))
 }
 
-export const register = (req, res) =>
+export const register = (req, res) => {
   sql.register(req.body)
     .then(([user]) => {
-      console.lor('[USER]', user)
+      console.log('[USER]', user)
       res.status(HTTP_STATUS.created.code).json({ id: user.id, email: user.email })
     })
-    .catch((error) => res.status(HTTP_STATUS.internal_server_error.code).json(error))
+    .catch((error) => {
+      console.log(error)
+      res.status(HTTP_STATUS.internal_server_error.code).json(error)
+    })
+}

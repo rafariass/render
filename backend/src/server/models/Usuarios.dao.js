@@ -12,5 +12,7 @@ export const findUserByEmail = async (email = '') =>
 export const register = async ({ email, password, rol, lenguage }) => {
   console.log('register')
   const query = 'INSERT INTO usuarios (id, email, password, rol, lenguage) VALUES (DEFAULT, $1, $2, $3, $4) RETURNING *;'
-  return await db(query, [email, encrypt(password), rol, lenguage])
+  const data = await db(query, [email, encrypt(password), rol, lenguage])
+  console.log(data)
+  return data
 }
