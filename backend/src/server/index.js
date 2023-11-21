@@ -14,6 +14,10 @@ app.use(tracker)
 app.use(routes.usuarios)
 app.use(routes.errors)
 
-app.listen(PORT, () => console.log(`SERVER UP in URL: http://localhost:${PORT}`))
+app.listen(PORT, () => console.log(`SERVER UP in PORT: ${PORT}`))
+
+console.log(process.env.RENDER_DISCOVERY_SERVICE)
+console.log(process.env.RENDER_EXTERNAL_HOSTNAME)
+console.log(process.env.RENDER_EXTERNAL_URL)
 
 export default app
