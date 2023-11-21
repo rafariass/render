@@ -1,7 +1,7 @@
 import './App.css'
 import Context from './contexts/Context'
 import useDeveloper from './hooks/useDeveloper'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 
 import Navigation from './components/Navigation'
 import Home from './views/Home'
@@ -14,7 +14,7 @@ const App = () => {
 
   return (
     <Context.Provider value={globalState}>
-      <BrowserRouter>
+      <HashRouter>
         <Navigation />
         <Routes>
           <Route path='/' element={<Home />} />
@@ -22,7 +22,7 @@ const App = () => {
           <Route path='/login' element={<Login />} />
           <Route path='/perfil' element={<Perfil />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </Context.Provider>
   )
 }
